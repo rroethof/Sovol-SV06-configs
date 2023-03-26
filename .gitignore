@@ -1,0 +1,12 @@
+# ignore the backup dir
+backup/
+
+# ignore all logs
+*.log
+
+# ignore all bkp files
+*.bkp
+
+crowsnest.conf
+telegram.conf
+moonraker.conf
