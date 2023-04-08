@@ -1,0 +1,80 @@
+[server]
+host: 0.0.0.0
+port: 7125
+klippy_uds_address: /home/xxxxx/comms/klippy.sock
+
+[authorization]
+trusted_clients:
+    10.0.0.0/8
+    127.0.0.0/8
+    169.254.0.0/16
+    172.16.0.0/12
+    192.168.0.0/16
+    FE80::/10
+    ::1/128
+cors_domains:
+    *.lan
+    *.local
+    *://localhost
+    *://localhost:*
+    *://my.mainsail.xyz
+    *://app.fluidd.xyz
+
+[octoprint_compat]
+
+[timelapse]
+output_path: ~/timelapse/
+frame_path: /tmp/timelapse/
+ffmpeg_binary_path: /usr/bin/ffmpeg
+enabled: True
+mode: layermacro
+snapshoturl: https://xxxxxxx
+gcode_verbose: True
+parkhead: True
+parkpos: back_left
+park_travel_speed: 100
+park_retract_speed: 15
+park_extrude_speed: 15
+park_retract_distance: 1.0
+park_extrude_distance: 1.0
+autorender: True
+output_framerate: 30
+pixelformat: yuv420p
+time_format_code: %Y%m%d_%H%M
+previewimage: True
+wget_skip_cert_check: True
+
+[history]
+
+[update_manager]
+channel: dev
+refresh_interval: 168
+
+[update_manager mainsail-config]
+type: git_repo
+primary_branch: master
+path: ~/mainsail-config
+origin: https://github.com/mainsail-crew/mainsail-config.git
+managed_services: klipper
+
+[update_manager mainsail]
+type: web
+channel: stable
+repo: mainsail-crew/mainsail
+path: ~/mainsail
+
+[update_manager moonraker-telegram-bot]
+type: git_repo
+path: ~/moonraker-telegram-bot
+origin: https://github.com/nlef/moonraker-telegram-bot.git
+env: ~/moonraker-telegram-bot-env/bin/python
+requirements: scripts/requirements.txt
+install_script: scripts/install.sh
+
+[update_manager timelapse]
+type: git_repo
+primary_branch: main
+path: ~/moonraker-timelapse
+origin: https://github.com/mainsail-crew/moonraker-timelapse.git
+managed_services: klipper moonraker
+

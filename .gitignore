@@ -1,6 +1,9 @@
 # ignore the backup dir
 backup/
 
+# ignore theme
+.theme
+
 # ignore all logs
 *.log
 
@@ -10,3 +13,4 @@ backup/
 crowsnest.conf
 telegram.conf
 moonraker.conf
+mainsail.conf
